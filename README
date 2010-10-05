@@ -7,23 +7,26 @@ Purpose
 File list
 
   * rsync.dirs
-      Default: @pool core extra community@
+      Default: pool core extra community
       Directories to be mirrored. See more at
         http://mirror.aarnet.edu.au/pub/archlinux/                   [2]
+
   * rsync.opts
-      Default: @-rtlvH --delete-after --delay-updates --safe-links --max-delete=1000@
+      Default: -rtlvH --delete-after --delay-updates --safe-links --max-delete=1000
       Options will be passed to rsync command.
 
   * rsync.urls:
-      List of tier-1 repositories (See [1])
+      List of tier-1 repositories (See [1]). The file may contains many
+      lines: the ones started by a sharp are comments. The first non-comment
+      line which is started by *rsync://* will be sued.
 
 Usage
 
   * Start the mirroring
-      <tt>./sync.sh 1>>sync.sh.log 2>&1 &</tt>
+      ./sync.sh 1>>sync.sh.log 2>&1 &
 
   * Get current state:
-      <tt>./stat.sh</tt>
+      ./stat.sh
 
 Author
   Anh K. Huynh <kyanh at viettug dot org>
