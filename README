@@ -1,6 +1,6 @@
 Purpose
 
-  The project contains some scripts to create an Arch Linux repository:
+  The project contains some scripts to create an Arch Linux repository;
   scripts are very simple, and based on the official documents
     http://wiki.archlinux.org/index.php/DeveloperWiki:NewMirrors     [1]
 
@@ -13,19 +13,25 @@ File list
 
   * rsync.opts
       Default: -rtlvH --delete-after --delay-updates --safe-links --max-delete=1000
-      Options will be passed to rsync command.
+      Options will be passed to rsync command
 
-  * rsync.urls:
-      List of tier-1 repositories (See [1]). The file may contains many
-      lines: the ones started by a sharp are comments. The first non-comment
-      line which is started by *rsync://* will be sued.
+  * rsync.urls
+      List of tier-1 repositories (See [1]). The file may contain many
+      lines: the ones started by a sharp are ignored. The first non-comment
+      line which is started by *rsync://* will be used
+
+  * sync.sh
+      Main script to be invoked
+
+  * stat.sh
+      Print current status. You should modify this script before using it
 
 Usage
 
-  * Start the mirroring
+  * Start to mirror
       ./sync.sh 1>>sync.sh.log 2>&1 &
 
-  * Get current state:
+  * Get current state (required the file 'sync.sh.log')
       ./stat.sh
 
 Author
