@@ -2,7 +2,7 @@
 # rsync://mirror.aarnet.edu.au/archlinux/
 
 # gwdg.de (Germany)
-# rsync://ftp5.gwdg.de/pub/linux/archlinux/
+rsync://ftp5.gwdg.de/pub/linux/archlinux/
 
 # uk2.net (Great Britain)
 # rsync://mirrors.uk2.net/archlinux/
