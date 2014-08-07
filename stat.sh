@@ -1,5 +1,5 @@
 #!/bin/bash
-_f_log="sync.sh.log"
+_f_log="${1:-sync.sh.log}"
 _p_last=""
 : ${D_MIRROR:=/home/www/public/archlinux/}
 while :; do
