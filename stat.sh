@@ -1,8 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 _f_log="sync.sh.log"
 _p_last=""
 : ${D_MIRROR:=/home/www/public/archlinux/}
 while :; do
+  [[ -f "$_f_log" ]] || break
   _p_current="$(grep tar $_f_log | tail -1)"
   if [ ! "$_p_current" = "$_p_last" ]; then
     _wc="$(grep tar $_f_log |wc -l)"
