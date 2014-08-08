@@ -11,6 +11,8 @@ cat \
 | grep -v ' os/' \
 > $_ftmp
 
+_s_mirror='Server = http://f.theslinux.org/archlinux/$repo/os/$arch'
+_s_contact='f_at_archlinuxvn_dot_org'
 _n_update="$(grep -v "deleting " $_ftmp | wc -l)"
 _n_delete="$(grep "deleting " $_ftmp | wc -l)"
 _n_64="$(find $D_MIRROR/pool/ -iname "*.xz" | grep x86_64 |wc -l)"
@@ -21,6 +23,8 @@ _latest_package_name="$(find $D_MIRROR/pool/ -name "*.tar.xz" -printf "%T@ %p\n"
 _latest_package_time="$(stat -c "%y" $_latest_package_name)"
 
 echo "{
+\"mirror_contact\": \"$_s_contact\",
+\"mirror_config\": \"$_s_mirror\",
 \"the_latest_package\": \"$(basename $_latest_package_name)\",
 \"the_latest_package_time\": \"$_latest_package_time\",
 \"repo_total_size_in_bytes\": $_repo_size_bytes,
