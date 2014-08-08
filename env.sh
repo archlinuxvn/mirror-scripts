@@ -7,7 +7,7 @@ mkdir -p $D_LOG $D_VAR
 
 # Please do not include any space in the output!
 __now__() {
-  date +'%Y%m%d-%H%M'
+  date +'%Y%m%d-%H%M%S'
 }
 
 __rand__() {
