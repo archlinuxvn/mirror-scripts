@@ -2,7 +2,7 @@
 
 source "$(dirname $0)/env.sh" || { echo >&2 "env.sh not found"; exit 127; }
 
-_f_log="${1:-sync.sh.log}"
+_f_log="${1:-$D_VAR/sync.sh.log}"
 _p_last=""
 
 while :; do
