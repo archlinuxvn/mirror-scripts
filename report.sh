@@ -13,4 +13,8 @@ grep -E '\.[gx]z$' \
 _n_update="$(grep -v "deleting " $_ftmp | wc -l)"
 _n_delete="$(grep "deleting " $_ftmp | wc -l)"
 
-echo "updating: $_n_update, delet: $_n_delete"
+echo "{
+\"number_of_updated_packages\": $_n_update,
+\"number_of_deleted_packages\": $_n_delete,
+\"report_time\": $(__now__)
+}"
