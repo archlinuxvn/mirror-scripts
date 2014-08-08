@@ -17,8 +17,8 @@ _OPT_RSYNC="$(cat rsync.opts | head -1)"
 for d in $(cat rsync.dirs); do
   cmd="rsync $_OPT_RSYNC $_URL_RSYNC/$d/ $D_MIRROR/$d/"
   echo "# $(__now__): start -> $d"
-  echo "# cmd = $cmd"
-  $cmd
+  echo "# cmd = $cmd, debug = $SYNC_DEBUG"
+  [[ -n $SYNC_DEBUG ]] || $cmd
   echo "# $(__now__), finish -> $d"
 done
 
