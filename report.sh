@@ -11,7 +11,7 @@ cat \
 | grep -v ' os/' \
 > $_ftmp
 
-_s_mirror='Server = http://f.theslinux.org/archlinux/$repo/os/$arch'
+_s_mirror='Server = http://f.archlinuxvn.org/archlinux/$repo/os/$arch'
 _s_contact='f_at_archlinuxvn_dot_org'
 _n_update="$(grep -v "deleting " $_ftmp | wc -l)"
 _n_delete="$(grep "deleting " $_ftmp | wc -l)"
