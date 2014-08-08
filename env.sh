@@ -4,3 +4,8 @@
 : ${D_MIRROR:=/home/www/public/archlinux/}
 
 mkdir -p $D_LOG $D_VAR
+
+# Please do not include any space in the output!
+__now__() {
+  date +'%Y%m%d-%H%M'
+}
