@@ -13,3 +13,5 @@ mv sync.sh.log "$_flog" && gzip "$_flog"
 
 zcat "$_flog" | $D_SRC/report.sh \
 > $D_MIRROR/status.json
+
+__unlock__ cron.sh

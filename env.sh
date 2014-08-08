@@ -33,3 +33,8 @@ __locking__() {
   echo $$ > $_PID_FILE
   return 0
 }
+
+__unlock__() {
+  _PID_FILE="$D_VAR/$1.pid"
+  rm -f $_PID_FILE
+}

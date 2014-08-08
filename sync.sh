@@ -15,5 +15,4 @@ for d in $(cat $D_SRC/rsync.dirs); do
   echo "# $(__now__), finish -> $d"
 done
 
-#clean up
-rm -f $_PID_FILE
+__unlock__ sync.sh
