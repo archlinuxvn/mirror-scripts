@@ -9,3 +9,6 @@ _time="$(__now__)"
 _flog="$D_LOG/sync.sh.log-$time"
 
 mv sync.sh.log "$_flog" && gzip "$_flog"
+
+zcat "$_flog" | $D_SRC/report.sh \
+> $D_MIRROR/status.json
