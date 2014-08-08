@@ -17,6 +17,8 @@ __rand__() {
 }
 
 __random_mirror_select__() {
-  local _mirrors="$(cat $D_SRC/rsync.urls | grep ^rsync://)"
-  local _max="${}"
+  local _mirrors=($(cat $D_SRC/rsync.urls | grep ^rsync://))
+  local _max="${#_mirrors[@]}"
+  _n="$(__rand__ $_max)"
+  echo ${_mirrors[$_n]}
 }
