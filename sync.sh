@@ -13,8 +13,8 @@ echo $$ > $_PID_FILE
 
 #sync data
 _URL_RSYNC="$(__random_mirror_select__)"
-_OPT_RSYNC="$(cat rsync.opts | head -1)"
-for d in $(cat rsync.dirs); do
+_OPT_RSYNC="$(cat $D_SRC/rsync.opts | head -1)"
+for d in $(cat $D_SRC/rsync.dirs); do
   cmd="rsync $_OPT_RSYNC $_URL_RSYNC/$d/ $D_MIRROR/$d/"
   echo "# $(__now__): start -> $d"
   echo "# cmd = $cmd, debug = $SYNC_DEBUG"
