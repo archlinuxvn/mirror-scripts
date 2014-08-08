@@ -11,7 +11,7 @@ _flog="$D_LOG/sync.sh.log-$(__now__)"
 
 mv sync.sh.log "$_flog" && gzip "$_flog"
 
-zcat "$_flog" | $D_SRC/report.sh \
+zcat "$_flog.gz" | $D_SRC/report.sh \
 > $D_MIRROR/status.json
 
 __unlock__ cron.sh
