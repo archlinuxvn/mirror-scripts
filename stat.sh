@@ -7,9 +7,9 @@ _p_last=""
 
 while :; do
   [[ -f "$_f_log" ]] || { echo >&2 "$_f_log: file not found"; break ; }
-  _p_current="$(grep tar $_f_log | tail -1)"
+  _p_current="$(grep -E '\.tar\.[xg]z' $_f_log | tail -1)"
   if [ ! "$_p_current" = "$_p_last" ]; then
-    _wc="$(grep tar $_f_log |wc -l)"
+    _wc="$(grep -E '\.tar\.[xg]z' $_f_log |wc -l)"
     echo "$_wc packages; last: $_p_current; \
 disk: $(df -h $D_MIRROR | tail -1 | sed -e 's/[ ]\+/ /g' | awk '{print $(NF-1)}')"
     _p_last="$_p_current"
