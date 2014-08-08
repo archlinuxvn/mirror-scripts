@@ -1,8 +1,6 @@
 #!/bin/bash
 
-cd $(dirname $0)
-
-source env.sh || { echo >&2 "env.sh not found"; exit 127; }
+source "$(dirname $0)/env.sh" || { echo >&2 "env.sh not found"; exit 127; }
 
 #locking
 _PID_FILE="$D_VAR/sync-mirror-archlinux.pid"

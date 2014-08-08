@@ -1,12 +1,12 @@
 #!/bin/bash
 
-source env.sh || { echo >&2 "env.sh not found"; exit 127; }
+source "$(dirname $0)/env.sh" || { echo >&2 "env.sh not found"; exit 127; }
 
 _f_log="${1:-sync.sh.log}"
 _p_last=""
 
 while :; do
-  [[ -f "$_f_log" ]] || break
+  [[ -f "$_f_log" ]] || { echo >&2 "$_f_log: file not found"; break ; }
   _p_current="$(grep tar $_f_log | tail -1)"
   if [ ! "$_p_current" = "$_p_last" ]; then
     _wc="$(grep tar $_f_log |wc -l)"

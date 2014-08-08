@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source env.sh || { echo >&2 "env.sh not found"; exit 127; }
+source "env.sh" || { echo >&2 "env.sh not found"; exit 127; }
 
 cd $D_VAR
 $D_SRC/sync.sh >> sync.sh.log 2>&1
