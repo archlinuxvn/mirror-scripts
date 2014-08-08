@@ -25,7 +25,7 @@ __random_mirror_select__() {
 
 
 __locking__() {
-  _PID_FILE="$D_VAR/sync-mirror-archlinux.pid"
+  _PID_FILE="$D_VAR/$1.pid"
   if [[ -f "$_PID_FILE" ]]; then
       echo >&2 "$(__now__): PID file does exist $_PID_FILE"
       return 1

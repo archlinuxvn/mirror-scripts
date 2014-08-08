@@ -2,7 +2,7 @@
 
 source "env.sh" || { echo >&2 "env.sh not found"; exit 127; }
 
-__locking__ || exit 1
+__locking__ cron.sh || exit 1
 
 cd $D_VAR
 $D_SRC/sync.sh >> sync.sh.log 2>&1

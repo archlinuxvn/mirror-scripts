@@ -2,7 +2,7 @@
 
 source "$(dirname $0)/env.sh" || { echo >&2 "env.sh not found"; exit 127; }
 
-__locking__ || exit 1
+__locking__ sync.sh || exit 1
 
 #sync data
 _URL_RSYNC="$(__random_mirror_select__)"
