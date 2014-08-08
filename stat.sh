@@ -1,7 +1,10 @@
 #!/bin/bash
+
+source env.sh || { echo >&2 "env.sh not found"; exit 127; }
+
 _f_log="${1:-sync.sh.log}"
 _p_last=""
-: ${D_MIRROR:=/home/www/public/archlinux/}
+
 while :; do
   [[ -f "$_f_log" ]] || break
   _p_current="$(grep tar $_f_log | tail -1)"

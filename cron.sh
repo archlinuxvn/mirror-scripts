@@ -1,8 +1,11 @@
 #!/bin/bash
 
-cd $HOME/mirror-scripts/ # this is very important
-$HOME/mirror-scripts/sync.sh >> sync.sh.log 2>&1
-mkdir -p log/
-mv sync.sh.log log/sync.sh.log-$(date +%Y%m%d.%H%M)
-exit 0
+source env.sh || { echo >&2 "env.sh not found"; exit 127; }
 
+cd $D_VAR
+$D_SRC/sync.sh >> sync.sh.log 2>&1
+
+_time="$(date +%Y%m%d.%H%M)"
+_flog="$D_LOG/sync.sh.log-$time"
+
+mv sync.sh.log $_flog && gzip $_flog
