@@ -2,22 +2,22 @@
 rsync://mirror.aarnet.edu.au/archlinux/
 
 # gwdg.de (Germany)
-rsync://ftp5.gwdg.de/pub/linux/archlinux/
+#rsync://ftp5.gwdg.de/pub/linux/archlinux/
 
 # uk2.net (Great Britain)
-rsync://mirrors.uk2.net/archlinux/
+#rsync://mirrors.uk2.net/archlinux/
 
 # gtlib.gatech.edu (USA)
-rsync://rsync.gtlib.gatech.edu/archlinux/
+#rsync://rsync.gtlib.gatech.edu/archlinux/
 
 # rit.edu (USA)
-rsync://mirror.rit.edu/archlinux/
+#rsync://mirror.rit.edu/archlinux/
 
 # tku.edu.tw (Taiwan)
-rsync://ftp.tku.edu.tw/archlinux/
+#rsync://ftp.tku.edu.tw/archlinux/
 
 # las.ic.unicamp.br (Brazil)
-rsync://rsync.las.ic.unicamp.br/pub/archlinux/
+#rsync://rsync.las.ic.unicamp.br/pub/archlinux/
 
 # c3sl.ufpr.br (Brazil)
-rsync://archlinux.c3sl.ufpr.br/archlinux/
+#rsync://archlinux.c3sl.ufpr.br/archlinux/
