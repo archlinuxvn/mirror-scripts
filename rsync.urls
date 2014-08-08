@@ -11,7 +11,7 @@ rsync://mirrors.uk2.net/archlinux/
 rsync://rsync.gtlib.gatech.edu/archlinux/
 
 # rit.edu (USA)
-# rsync://mirror.rit.edu/archlinux/
+rsync://mirror.rit.edu/archlinux/
 
 # tku.edu.tw (Taiwan)
 rsync://ftp.tku.edu.tw/archlinux/
