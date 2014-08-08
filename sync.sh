@@ -2,14 +2,7 @@
 
 source "$(dirname $0)/env.sh" || { echo >&2 "env.sh not found"; exit 127; }
 
-#locking
-_PID_FILE="$D_VAR/sync-mirror-archlinux.pid"
-
-if [[ -f "$_PID_FILE" ]]; then
-    echo >&2 "$(__now__): PID file does exist $_PID_FILE"
-    exit 1
-fi
-echo $$ > $_PID_FILE
+__locking__ || exit 1
 
 #sync data
 _URL_RSYNC="$(__random_mirror_select__)"

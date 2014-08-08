@@ -22,3 +22,14 @@ __random_mirror_select__() {
   _n="$(__rand__ $_max)"
   echo ${_mirrors[$_n]}
 }
+
+
+__locking__() {
+  _PID_FILE="$D_VAR/sync-mirror-archlinux.pid"
+  if [[ -f "$_PID_FILE" ]]; then
+      echo >&2 "$(__now__): PID file does exist $_PID_FILE"
+      return 1
+  fi
+  echo $$ > $_PID_FILE
+  return 0
+}
