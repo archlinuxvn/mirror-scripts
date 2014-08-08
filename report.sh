@@ -16,5 +16,5 @@ _n_delete="$(grep "deleting " $_ftmp | wc -l)"
 echo "{
 \"number_of_updated_packages\": $_n_update,
 \"number_of_deleted_packages\": $_n_delete,
-\"report_time\": $(__now__)
+\"report_time\": \"$(__now__)\"
 }"
