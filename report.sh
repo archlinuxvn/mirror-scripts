@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source env.sh || { echo >&2 "env.sh not found"; exit 127; }
+source "$(dirname $0)/env.sh" || { echo >&2 "env.sh not found"; exit 127; }
 
 _ftmp="$D_VAR/report.tmp.log"
 
