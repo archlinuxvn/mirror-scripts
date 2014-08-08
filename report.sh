@@ -21,7 +21,7 @@ _latest_package_name="$(find $D_MIRROR/pool/ -name "*.tar.xz" -printf "%T@ %p\n"
 _latest_package_time="$(stat -c "%y" $_latest_package_name)"
 
 echo "{
-\"the_latest_package\": \"$_latest_package_name\",
+\"the_latest_package\": \"$(basename $_latest_package_name)\",
 \"the_latest_package_time\": \"$_latest_package_time\",
 \"repo_total_size_in_bytes\": $_repo_size_bytes,
 \"repo_total_size_in_name\": \"$_repo_size_human\",
