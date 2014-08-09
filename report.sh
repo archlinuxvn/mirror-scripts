@@ -29,12 +29,12 @@ echo "{
 \"mirror_config\": \"$_s_mirror\",
 \"the_latest_package\": \"$(basename $_latest_package_name)\",
 \"the_latest_package_time\": \"$_latest_package_time\",
-\"repo_total_size_in_bytes\": $_repo_size_bytes,
+\"repo_total_size_in_bytes\": \"$_repo_size_bytes\",
 \"repo_total_size_in_name\": \"$_repo_size_human\",
-\"number_of_packages_x86_64\": $_n_64,
-\"number_of_packages_i686\": $_n_32,
-\"number_of_packages_any\": $_n_any,
-\"number_of_updated_packages\": $_n_update,
-\"number_of_deleted_packages\": $_n_delete,
+\"number_of_packages_x86_64\": \"$_n_64\",
+\"number_of_packages_i686\": \"$_n_32\",
+\"number_of_packages_any\": \"$_n_any\",
+\"number_of_updated_packages\": \"$_n_update\",
+\"number_of_deleted_packages\": \"$_n_delete\",
 \"report_time\": \"$(__now__)\"
 }"
