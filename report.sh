@@ -14,7 +14,8 @@ cat \
 _s_mirror='Server = http://f.archlinuxvn.org/archlinux/$repo/os/$arch'
 _s_contact='f_at_archlinuxvn_dot_org'
 _n_update="$(grep -v "deleting " $_ftmp | wc -l)"
-_n_delete="$(grep "deleting " $_ftmp | wc -l)"
+#_n_delete="$(grep "deleting " $_ftmp | wc -l)"
+_n_delete="null"
 _n_64="$(find $D_MIRROR/pool/ -iname "*.xz" | grep x86_64 |wc -l)"
 _n_32="$(find $D_MIRROR/pool/ -iname "*.xz" | grep i686 |wc -l)"
 _n_any="$(find $D_MIRROR/pool/ -iname "*.xz" | grep -- '-any\.' |wc -l)"
