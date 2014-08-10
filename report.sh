@@ -13,6 +13,7 @@ cat \
 
 _s_mirror='Server = http://f.archlinuxvn.org/archlinux/$repo/os/$arch'
 _s_contact='f_at_archlinuxvn_dot_org'
+_s_iso='http://f.archlinuxvn.org/archlinux/iso/'
 _n_update="$(grep -v "deleting " $_ftmp | wc -l)"
 #_n_delete="$(grep "deleting " $_ftmp | wc -l)"
 _n_delete="null"
@@ -27,6 +28,7 @@ _latest_package_time="$(stat -c "%y" $_latest_package_name)"
 echo "{
 \"mirror_contact\": \"$_s_contact\",
 \"mirror_config\": \"$_s_mirror\",
+\"mirror_iso_files\": \"$_s_iso\",
 \"the_latest_package\": \"$(basename $_latest_package_name)\",
 \"the_latest_package_time\": \"$_latest_package_time\",
 \"repo_total_size_in_bytes\": \"$_repo_size_bytes\",
