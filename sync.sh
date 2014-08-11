@@ -18,7 +18,7 @@ if [[ -n $SYNC_DEBUG ]]; then
 else
   echo "# $(__now__): start"
 
-    cat <<EOT | rsync $_OPT_RSYNC $_URL_RSYNC/ $D_MIRROR/ -f '. -' --dry-run
+    cat <<EOT | rsync $_OPT_RSYNC $_URL_RSYNC/ $D_MIRROR/ -f '. -'
 $(for d in $(cat $D_SRC/rsync.dirs); do echo "+ /$d**"; done)
 - *
 EOT
