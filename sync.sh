@@ -4,15 +4,26 @@ source "$(dirname $0)/env.sh" || { echo >&2 "env.sh not found"; exit 127; }
 
 __locking__ sync.sh || exit 1
 
-#sync data
 _URL_RSYNC="$(__random_mirror_select__)"
 _OPT_RSYNC="$(cat $D_SRC/rsync.opts | head -1)"
-for d in $(cat $D_SRC/rsync.dirs); do
-  cmd="rsync $_OPT_RSYNC $_URL_RSYNC/$d/ $D_MIRROR/$d/"
-  echo "# $(__now__): start -> $d"
+
+if [[ -n $SYNC_DEBUG ]]; then
+  set -f
+  _PATTERN=""
+  for d in $(cat $D_SRC/rsync.dirs); do
+    _PATTERN="$_PATTERN -f \"+ /$d**\""
+  done
+  cmd="rsync $_OPT_RSYNC $_URL_RSYNC/ $D_MIRROR/ $_PATTERN -f '- *' --dry-run"
   echo "# cmd = $cmd, debug = $SYNC_DEBUG"
-  [[ -n $SYNC_DEBUG ]] || $cmd
-  echo "# $(__now__), finish -> $d"
-done
+else
+  echo "# $(__now__): start"
+
+    cat <<EOT | rsync $_OPT_RSYNC $_URL_RSYNC/ $D_MIRROR/ -f '. -' --dry-run
+$(for d in $(cat $D_SRC/rsync.dirs); do echo "+ /$d**"; done)
+- *
+EOT
+
+  echo "# $(__now__): finish"
+fi
 
 __unlock__ sync.sh
