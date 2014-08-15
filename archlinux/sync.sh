@@ -17,6 +17,8 @@ if [[ -n $SYNC_DEBUG ]]; then
   echo "# cmd = $cmd, debug = $SYNC_DEBUG"
 else
   echo "# $(__now__): start"
+  echo "# cmd = rsync $_OPT_RSYNC $_URL_RSYNC/ $D_MIRROR/"
+  echo "# dirs = $(cat $D_SRC/rsync.dirs)"
 
     cat <<EOT | rsync $_OPT_RSYNC $_URL_RSYNC/ $D_MIRROR/ -f '. -'
 $(for d in $(cat $D_SRC/rsync.dirs); do echo "+ /$d**"; done)
