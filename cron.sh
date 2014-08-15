@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export D_START="$(dirname $0)"
+export D_START="$PWD"
 
 # archlinux
 
