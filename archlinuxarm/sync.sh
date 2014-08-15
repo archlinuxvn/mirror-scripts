@@ -1,0 +1,1 @@
+../archlinux/sync.sh
