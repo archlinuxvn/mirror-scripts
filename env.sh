@@ -1,18 +1,16 @@
 
-if [[ "$DISTRO" == "archlinux" ]]; then
-  D_SRC="$HOME/mirror-scripts/archlinux/"
-  D_VAR="$HOME/var/archlinux/"
-  D_LOG="$D_VAR/log/"
-  D_MIRROR='/home/www/public/archlinux/'
-elif [[ "$DISTRO" == "archlinuxarm" ]]; then
-  D_SRC="$HOME/mirror-scripts/archlinux/"
-  D_VAR="$HOME/var/archlinux/"
-  D_LOG="$D_VAR/log/"
-  D_MIRROR='/home/www/public/archlinuxarm/'
-else
-  echo >&2 "Unknown distro: '$DISTRO'"
-  exit 127
-fi
+case "$DISTRO" in
+  "archlinux") ;;
+  "archlinuxarm") ;;
+  *)
+    echo >&2 "Unknown distro: '$DISTRO'";
+    exit 127 ;;
+esac
+
+export D_SRC="$HOME/mirror-scripts/$DISTRO/"
+export D_VAR="$HOME/var/$DISTRO/"
+export D_LOG="$D_VAR/log/"
+export D_MIRROR="/home/www/public/$DISTRO/"
 
 mkdir -p $D_LOG $D_VAR
 
