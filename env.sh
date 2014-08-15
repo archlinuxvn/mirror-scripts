@@ -1,7 +1,18 @@
-: ${D_SRC:=$HOME/mirror-scripts/archlinux/}
-: ${D_VAR:=$HOME/var/archlinux/}
-: ${D_LOG:=$D_VAR/log/}
-: ${D_MIRROR:=/home/www/public/archlinux/}
+
+if [[ "$DISTRO" == "archlinux" ]]; then
+  D_SRC="$HOME/mirror-scripts/archlinux/"
+  D_VAR="$HOME/var/archlinux/"
+  D_LOG="$D_VAR/log/"
+  D_MIRROR='/home/www/public/archlinux/'
+elif [[ "$DISTRO" == "archlinuxarm" ]]; then
+  D_SRC="$HOME/mirror-scripts/archlinux/"
+  D_VAR="$HOME/var/archlinux/"
+  D_LOG="$D_VAR/log/"
+  D_MIRROR='/home/www/public/archlinuxarm/'
+else
+  echo >&2 "Unknown distro: '$DISTRO'"
+  exit 127
+fi
 
 mkdir -p $D_LOG $D_VAR
 
@@ -37,4 +48,16 @@ __locking__() {
 __unlock__() {
   _PID_FILE="$D_VAR/$1.pid"
   rm -f $_PID_FILE
+}
+
+__sync() {
+  cd $D_VAR
+  $D_SRC/sync.sh >> sync.sh.log 2>&1
+
+  _flog="$D_LOG/sync.sh.log-$(__now__)"
+
+  mv sync.sh.log "$_flog" && gzip "$_flog"
+
+  zcat "$_flog.gz" | $D_SRC/report.sh \
+  > $D_MIRROR/status.json
 }
