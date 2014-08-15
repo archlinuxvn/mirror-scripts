@@ -1,1 +1,1 @@
--rtlvH --delete-after --delay-updates --max-delete=1000 --dry-run
+../archlinux/rsync.opts
