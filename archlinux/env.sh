@@ -1,11 +1,11 @@
-: ${D_SRC:=$HOME/mirror-scripts/}
-: ${D_VAR:=$HOME/var/}
+: ${D_SRC:=$HOME/mirror-scripts/archlinux/}
+: ${D_VAR:=$HOME/var/archlinux/}
 : ${D_LOG:=$D_VAR/log/}
 : ${D_MIRROR:=/home/www/public/archlinux/}
 
 mkdir -p $D_LOG $D_VAR
 
-# Please do not include any space in the output!
+# Please do not include any space in the foutput!
 __now__() {
   date +'%Y%m%d-%H%M%S'
 }
