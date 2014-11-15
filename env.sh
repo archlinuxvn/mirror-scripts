@@ -50,7 +50,7 @@ __unlock__() {
 
 __sync() {
   if [[ ! -w "$D_MIRROR" ]]; then
-    echo >&2 "$FUNCNAME: $D_MIRROR is not writable"
+    # echo >&2 "$FUNCNAME: $D_MIRROR is not writable"
     return
   fi
 
