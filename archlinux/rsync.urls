@@ -1,4 +1,4 @@
-rsync://mirror.one.com/archlinux/
+#rsync://mirror.one.com/archlinux/
 # leaseweb.net (USA)
 #rsync://mirror.us.leaseweb.net/archlinux/
 
@@ -27,7 +27,7 @@ rsync://mirror.one.com/archlinux/
 #rsync://mirror.rit.edu/archlinux/
 
 # tku.edu.tw (Taiwan)
-#rsync://ftp.tku.edu.tw/archlinux/
+rsync://ftp.tku.edu.tw/archlinux/
 
 # las.ic.unicamp.br (Brazil)
 #rsync://rsync.las.ic.unicamp.br/pub/archlinux/
