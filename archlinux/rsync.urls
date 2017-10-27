@@ -1,5 +1,6 @@
+rsync://mirror.one.com/archlinux/
 # leaseweb.net (USA)
-rsync://mirror.us.leaseweb.net/archlinux/
+#rsync://mirror.us.leaseweb.net/archlinux/
 
 # leaseweb.net (Netherlands)
 #rsync://mirror.nl.leaseweb.net/archlinux/
