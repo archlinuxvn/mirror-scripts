@@ -7,8 +7,9 @@ case "$DISTRO" in
     exit 127 ;;
 esac
 
-export D_SRC="$HOME/mirror-scripts/$DISTRO/"
-export D_VAR="$HOME/var/$DISTRO/"
+export D_ROOT="/home/www/system/$DISTRO/"
+export D_SRC="$D_ROOT/mirror-scripts/$DISTRO/"
+export D_VAR="$D_ROOT/var/$DISTRO/"
 export D_LOG="$D_VAR/log/"
 export D_MIRROR="/home/www/public/$DISTRO/"
 
@@ -16,7 +17,7 @@ mkdir -p $D_LOG $D_VAR
 
 # Please do not include any space in the foutput!
 __now__() {
-  date +'%Y%m%d-%H%M%S'
+  TZ=Asia/Saigon date +'%Y%m%d-%H%M%S'
 }
 
 __rand__() {
