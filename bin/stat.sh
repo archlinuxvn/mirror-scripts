@@ -22,11 +22,6 @@ _distro_last_mod() {
   | tail -1 \
   | ruby -n -e '
       pkg, n, _ = $_.split;
-      if n.match(/[0-9]+/)
-        found = 1
-      else STDERR.puts "input #{$_} not found..."
-      end
-
       pkg = File.basename(pkg);
       hours = ((Time.now - Time.at(n.to_i))/3600).to_i;
       STDOUT.write "{\"the_latest_package\": \"#{pkg}\", \"modified\": \"#{hours} hour(s) ago\", ";
