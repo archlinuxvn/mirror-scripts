@@ -29,7 +29,7 @@ _distro_last_mod() {
 
       pkg = File.basename(pkg);
       hours = ((Time.now - Time.at(n.to_i))/3600).to_i;
-      STDOUT.write "{\"pkg\": \"#{pkg}\", \"mod\": \"#{hours} hour(s)\", ";
+      STDOUT.write "{\"the_latest_package\": \"#{pkg}\", \"modified\": \"#{hours} hour(s) ago\", ";
     ' \
    | awk 'BEGIN {found=0} { printf("%s", $0); found+=1 } END { if (found==0) { printf("{\"error\": \"Mirror out-of-date, or No new package in the last 7 days.\", "); }}'
 
