@@ -38,13 +38,15 @@ _distro_last_mod() {
 
 set -u
 
-_F_OUTPUT="/home/www/public/config/status.json"
+_F_OUTPUT="${_F_OUTPUT:-/home/www/public/config/status.json}"
 
 {
   echo "{\"mirrors\":["
   _distro_last_mod archlinux; echo ","
   _distro_last_mod blackarch; echo ","
   _distro_last_mod slitaz;
-  echo "]}"
+  echo "]",
+  echo "\"status_updated_at\": \"$(date)\""
+  echo "}"
 } > "$_F_OUTPUT.tmp"
 mv -fv "$_F_OUTPUT.tmp" "$_F_OUTPUT"
