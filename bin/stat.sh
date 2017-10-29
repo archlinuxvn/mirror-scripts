@@ -10,6 +10,11 @@ _distro_to_ext() {
   esac
 }
 
+_distro_score_archlinux() {
+  curl -sL https://www.archlinux.org/mirrors/status/json/ \
+  | ruby -rjson -e 'avn=JSON.parse(STDIN.read)["urls"].select{|m| m["url"].match(/archlinuxvn/)}.first; puts avn ? avn["score"] : -1'
+}
+
 _distro_last_mod() {
   local _distro="$1"
   local _ext=
@@ -27,6 +32,10 @@ _distro_last_mod() {
       STDOUT.write "{\"the_latest_package\": \"#{pkg}\", \"modified\": \"#{hours} hour(s) ago\", ";
     ' \
    | awk 'BEGIN {found=0} { printf("%s", $0); found+=1 } END { if (found==0) { printf("{\"error\": \"Mirror out-of-date, or No new package in the last 7 days.\", "); }}'
+
+  if [[ "$_distro" == "archlinux" ]]; then
+    echo "\"score\": \"$(_distro_score_archlinux)\","
+  fi
 
   echo "\"distro\": \"$_distro\"}"
 }
