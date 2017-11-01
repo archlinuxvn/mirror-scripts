@@ -40,6 +40,10 @@ _distro_last_mod() {
   echo "\"distro\": \"$_distro\"}"
 }
 
+_distro_ubuntu() {
+  echo "{\"the_latest_package\": \"pacman\", \"modified\": \"Wed Nov  1 14:03:32 +07 2030\", \"distro\": \"ubuntu\"},"
+}
+
 set -u
 
 _F_OUTPUT="${_F_OUTPUT:-/home/www/public/config/status.json}"
@@ -49,6 +53,7 @@ _F_OUTPUT="${_F_OUTPUT:-/home/www/public/config/status.json}"
   _distro_last_mod archlinux; echo ","
   _distro_last_mod blackarch; echo ","
   _distro_last_mod archlinuxarm; echo ","
+  _distro_ubuntu
   _distro_last_mod slitaz;
   echo "]",
   echo "\"status_updated_at\": \"$(date)\""
