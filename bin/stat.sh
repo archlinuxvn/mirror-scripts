@@ -48,6 +48,7 @@ _F_OUTPUT="${_F_OUTPUT:-/home/www/public/config/status.json}"
   echo "{\"mirrors\":["
   _distro_last_mod archlinux; echo ","
   _distro_last_mod blackarch; echo ","
+  _distro_last_mod archlinuxarm; echo ","
   _distro_last_mod slitaz;
   echo "]",
   echo "\"status_updated_at\": \"$(date)\""
